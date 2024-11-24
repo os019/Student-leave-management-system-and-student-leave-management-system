@@ -1,0 +1,182 @@
+@media screen and (min-width: 1000px) {
+   .navbar-nav {
+      font-size: 1.2rem;
+      padding-left: 10rem;
+      margin-right: 18rem;
+   }
+
+   .nav-item {
+      padding-left: 3rem;
+   }
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+   font-weight: 100;
+   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.navbar-brand {
+   font-size: 2.3rem;
+   font-weight: bold;
+
+}
+
+/* Header Headings */
+.site-heading {
+   width: 100%;
+   height: 75vh;
+   /* text-align: center; */
+   justify-content: center;
+   text-align: center;
+}
+
+.site-heading img {
+   width: 90%;
+   height: 100%;
+   margin-top: 2.5rem;
+   margin-right: 3rem;
+   border-radius: 1%;
+   /* margin-right: 10rem; */
+}
+
+.container-lg {
+   width: 100%;
+   height: 75vh;
+}
+
+.heading {
+   margin-top: 6rem;
+   justify-content: center;
+}
+
+.heading h1 {
+   font-size: 3.8rem;
+}
+
+.heading-button button {
+
+   margin-right: 1.5rem;
+}
+
+
+
+/* Features */
+.features {
+   margin-top: 1rem;
+   text-align: center;
+}
+
+.features img {
+   width: 70%;
+   height: 40vh;
+   border-radius: 2%;
+
+}
+
+/* .features .col {
+   margin-0;
+   padding: 0;
+} */
+
+ .features .row {
+   width: 80%;
+   padding: 0;
+   /* margin-right: 2rem; */
+   margin-left: 10.5rem;
+   justify-content: center;
+}
+
+.underline {
+   width: 10%;
+   height: 1px;
+   margin-bottom: 4rem;
+   background-color: black;
+}
+.features .row button{
+   width: 70%;
+}
+
+
+/* Footer Style */
+
+footer .container{
+   margin-top: 10rem;
+   bottom: 0;
+   position: sticky;
+   left: 0;
+   width: 100%;
+   text-align: center;
+}
+.copyright{
+   text-align: center;
+}
+.fa{
+   color: #292b2c;
+}
+
+
+
+/* Student add Form */
+.student-add{
+   width: 40%;
+}
+.student_record{
+   margin-top: 3rem;
+   margin-left: 1.7%;
+   margin-right: 2rem;
+   justify-content: center;
+}
+.student_record .col{
+   margin-top: 1rem;
+}
+.student_info_heading{
+   margin-left:1%;
+}
+
+.student_info_heading h1{
+   margin-left: 1%;
+}
+
+/* Take Attendace */
+.subject{
+   margin-top: 2%;
+   margin-bottom: 2%;
+   width: 20%;
+}
+.takeAttendace-container{
+   margin-left: 2%;
+}
+
+
+/* View Attendance */
+.view_attendance-container{
+   margin-left: 1.5%;
+}
+.view_attendance-container .row{
+   margin-bottom: 1.5%;
+}
+
+/* The Code is for the Table Scroll */
+.my-custom-scrollbar {
+   position: relative;
+   height: 40vh;
+   overflow: auto;
+   }
+   .table-wrapper-scroll-y {
+   display: block;
+   }
+
+.sendMessage{
+   width: 100%;
+}
+
+.leave-container{
+   margin: 2%;
+}

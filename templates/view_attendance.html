@@ -1,0 +1,94 @@
+{% include "header.html" %}
+
+
+<div class="container-fluid view_attendance-container ">
+   <div class="row view_attendance_heading">
+      <h2>View Attendance</h2>
+   </div>
+   <div class="row">
+      <form action="/view_attendance1" method='POST'>
+         <div class="row">
+            <div class="col-lg-3">
+               <label for="exampleFormControlSelect1">Select The Department</label>
+               <select class="form-control" name="Department">
+                  <option>Computer Science and Engineering</option>
+                  <option>Civil Engineering</option>
+                  <option>Mechanical Engineering</option>
+                  <option>Electronic and Telecommunication Engineering</option>
+                  <option>Chemical Engineering</option>
+               </select>
+            </div>
+
+            <div class="col-lg-3">
+               <label for="exampleFormControlSelect1">Select The Year</label>
+               <select class="form-control" name="Year">
+                  <option>First Year</option>
+                  <option>Second Year</option>
+                  <option>Third Year</option>
+                  <option>Last Year</option>
+               </select>
+            </div>
+
+            <div class="col-lg-3">
+               <label for="exampleFormControlSelect1">Select The Division</label>
+               <select class="form-control" name="Division">
+                  <option>A</option>
+                  <option>B</option>
+                  <option>C</option>
+               </select>
+            </div>
+
+            <div class="col-lg-3">
+               <button type="submit" class="btn btn-primary">APPLY</button>
+            </div>
+         </div>
+      </form>
+   </div>
+   <div class="row">
+
+      <div class="col-lg-3">
+         <form action="/view_attendance" class="d-flex view_search" method="POST">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="view_prn">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+         </form>
+      </div>
+   </div>
+   <div class="row">
+      <table class="table">
+         <thead>
+            <tr>
+               <th scope="col">Roll No</th>
+               <th scope="col">Name</th>
+               {% for subject in subjects:%}
+               
+               <th scope="col">{{subject}}</th>
+               {%endfor%}
+               <th>Total</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            <tr>
+               <th>-</th>
+               <th>Total Leacture Conducted</th>
+               {% for subject in subjects %}
+               <th>{{conductedLechture[subject]}}</th>
+               {% endfor %}
+               
+            </tr>
+            {% for student in presentStudent %}
+            <tr>
+               <td scope="row">{{loop.index}}</td>
+               <td>{{student}}</td>
+               {% for subject in subjects:  %}
+               <td>{{students[student][subject]}}</td>
+               {% endfor %}
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </div>
+
+
+
+   {% include "footer.html" %}

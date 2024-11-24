@@ -1,0 +1,54 @@
+{% include "header.html" %}
+
+<div class="container-fluid leave-container">
+   <div class="row">
+      <h2>Applied Leaves</h2>
+   </div>
+   <div class="row">
+      <table class="table">
+         <thead class="thead-light">
+            <tr>
+               <th scope="col">Record </th>
+               <th scope="col">PRN</th>
+               <th scope="col">Name</th>
+               <th scope="col">Department</th>
+               <th scope="col">Division</th>
+               <th scope="col">Year</th>
+               <th scope="col">Roll No</th>
+               <th scope="col">Phone No</th>
+               <th scope="col">Apply Date</th>
+               <th scope="col">Description</th>
+               <th scope="col"></th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for student in students:  %}
+            {% for leave in allLeaves %}
+            {% if leave.prn==student.PRN and leave.status=='PENDING' %}
+            <tr>
+               <th scope="row">1</th>
+               <td>{{student.PRN}}</td>
+               <td>{{student.name}}</td>
+               <td>{{student.depart_name}}</td>
+               <td>{{student.division}}</td>
+               <td>{{student.year}}</td>
+               <td>{{student.roll_no}}</td>
+               <td>{{student.phone_no}}</td>
+               <td>{{leave.date}}</td>
+               <td>{{leave.description}}</td>
+               <td>
+                  <form action="/viewLeaves" method='POST'>
+                     <input type="hidden" name="value" value="{{leave.id}}">
+                     <td><button type="submit" class="btn btn-primary">Approve</button></td>
+                  </form>
+               </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+
+         </tbody>
+      </table>
+   </div>
+</div>
+{% include "footer.html" %}

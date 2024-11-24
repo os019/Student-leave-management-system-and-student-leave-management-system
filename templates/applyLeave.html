@@ -1,0 +1,15 @@
+{% include "header.html" %}
+
+<div class="container">
+   <form action="/applyleave" method='POST'>
+      
+      <div class="form-group">
+         <h6><label for="exampleFormControlTextarea1">Reason For Leave</label></h6>
+         <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name='Reason'></textarea>
+       </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
+</div>
+
+{% include "footer.html" %}

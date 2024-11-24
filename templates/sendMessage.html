@@ -1,0 +1,94 @@
+{% include "header.html" %}
+
+
+<div class="container-fluid view_attendance-container">
+   <div class="row">
+      <h2>Send Message</h2>
+   </div>
+   <div class="row">
+      <form action="/sendMessage" method='POST'>
+         <div class="row">
+            <div class="col-lg-3">
+               <label for="exampleFormControlSelect1">Select The Department</label>
+               <select class="form-control" name="Department">
+                  <option>Computer Science and Engineering</option>
+                  <option>Civil Engineering</option>
+                  <option>Mechanical Engineering</option>
+                  <option>Electronic and Telecommunication Engineering</option>
+                  <option>Chemical Engineering</option>
+               </select>
+            </div>
+
+            <div class="col-lg-3">
+               <label for="exampleFormControlSelect1">Select The Year</label>
+               <select class="form-control" name="Year">
+                  <option>First Year</option>
+                  <option>Second Year</option>
+                  <option>Third Year</option>
+                  <option>Last Year</option>
+               </select>
+            </div>
+
+            <div class="col-lg-3">
+               <label for="exampleFormControlSelect1">Select The Division</label>
+               <select class="form-control" name="Division">
+                  <option>A</option>
+                  <option>B</option>
+                  <option>C</option>
+               </select>
+            </div>
+
+            <div class="col-lg-3">
+               <button type="submit" class="btn btn-primary">APPLY</button>
+            </div>
+         </div>
+      </form>
+   </div>
+   <div class="row">
+      {% if studentPrn!="": %}
+      <table class="table">
+         <thead>
+           <tr>
+             <th scope="col">Records</th>
+             <th scope="col">Name</th>
+             <th scope="col">PRN No</th>
+             <th scope="col">Phone Number</th>
+             <th scope="col">Attendace Percentage</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+            {% for PRN in studentsPrn: %}
+            {% for student in all_student_info %}
+            {% if student.PRN == PRN%}
+             <th scope="row">{{loop.index}}</th>
+             <td>{{student.name}}</td>
+             <td>{{PRN}}</td>
+             <td>{{student.phone_no}}</td>
+             <td>{{percentage[PRN]}}</td>
+             {%endif%}
+           </tr>
+           {% endfor %}
+           {% endfor %}
+         </tbody>
+       </table>
+       {%endif%}
+   </div>
+   <div class="row sendMessage">
+      <form action="/sendMessage1" method='POST'>
+         <div class="form-group">
+           <label for="exampleFormControlInput1">Enter Defaulter Criteria Percentage</label>
+           <input type="text" class="form-control" name='criteriPercentage' placeholder="60">
+         </div>
+         <div class="form-group">
+           <label for="exampleFormControlTextarea1">Message Send To The Student</label>
+           <textarea class="form-control" id="exampleFormControlTextarea1" name='message' rows="3"></textarea>
+         </div>
+         <button type="submit" class="btn btn-dark">Send Message</button>
+
+       </form>
+   </div>
+</div>
+
+
+   {% include "footer.html" %}

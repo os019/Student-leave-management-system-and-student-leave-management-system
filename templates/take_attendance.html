@@ -1,0 +1,95 @@
+{% include "header.html" %}
+
+<div class="container-fluid takeAttendace-container">
+   <div class="row">
+      <h2>Take Attendance</h2>
+   </div>
+   <form action="/take_attendance1" method='POST'>
+      <div class="row">
+         <div class="col-lg-3">
+            <label for="exampleFormControlSelect1">Select The Department</label>
+            <select class="form-control" name="Department">
+               <option>Computer Science and Engineering</option>
+               <option>Civil Engineering</option>
+               <option>Mechanical Engineering</option>
+               <option>Electronic and Telecommunication Engineering</option>
+               <option>Chemical Engineering</option>
+            </select>
+         </div>
+
+         <div class="col-lg-3">
+            <label for="exampleFormControlSelect1">Select The Year</label>
+            <select class="form-control" name="Year">
+               <option>First Year</option>
+               <option>Second Year</option>
+               <option>Third Year</option>
+               <option>Last Year</option>
+            </select>
+         </div>
+
+         <div class="col-lg-3">
+            <label for="exampleFormControlSelect1">Select The Division</label>
+            <select class="form-control" name="Division">
+               <option>A</option>
+               <option>B</option>
+               <option>C</option>
+            </select>
+         </div>
+
+         <div class="col-lg-3">
+            <button type="submit" class="btn btn-primary">APPLY</button>
+         </div>
+      </div>
+   </form>
+   <form action="/take_attendance" method="POST">
+      <div class="row subject">
+         <label for="exampleFormControlSelect1">Select The Subject</label>
+         <select class="form-control" name="subject">
+            <option>Machine Learning</option>
+            <option>DataBase Engineering</option>
+            <option>Advance Computer Architecture</option>
+            <option>Software Testing and Quality Assurance</option>
+            <option>Internet of Things</option>
+         </select>
+      </div>
+      <div class="row table-wrapper-scroll-y my-custom-scrollbar">
+         <table class="table">
+            <thead>
+               <tr>
+                  <th scope="col">Record No</th>
+                  <th scope="col">PRN No.</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Roll No</th>
+                  <th scope="col">email</th>
+                  <th scope="col">Phone Number</th>
+                  <th scope="col">Attendace</th>
+               </tr>
+            </thead>
+            <tbody>
+
+               {% for student in students %}
+               <tr>
+                  <th scope="row">{{loop.index}}</th>
+                  <td>{{student.PRN}}</td>
+                  <td>{{student.name}}</td>
+                  <td>{{student.roll_no}}</td>
+                  <td>{{student.email}}</td>
+                  <td>{{student.phone_no}}</td>
+                  <td>
+                     <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name={{student.PRN}}>
+                        <label class="form-check-label" for="exampleCheck1"></label>
+                     </div>
+                  </td>
+
+               </tr>
+               {% endfor %}
+
+            </tbody>
+         </table>
+         <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
+</div>
+</div>
+
+{% include "footer.html" %}

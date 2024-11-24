@@ -1,0 +1,30 @@
+{% include "header.html" %}
+
+<div class="container">
+   <div class="row">
+      <h2>Leaves Applied</h2>
+   </div>
+   <div class="row">
+      <table class="table">
+         <thead class="thead-dark">
+           <tr>
+             <th scope="col">Record</th>
+             <th scope="col">Description </th>
+             <th scope="col">Date</th>
+             <th scope="col">Status</th>
+           </tr>
+         </thead>
+         <tbody>
+            {% for leave in userLeaves %}
+           <tr>
+             <th scope="row">{{loop.index}}</th>
+             <td>{{leave.description}}</td>
+             <td>{{leave.date}}</td>
+             <td>{{leave.status}}</td>
+           </tr>
+           {% endfor %}
+         </tbody>
+       </table>
+   </div>
+</div>
+{% include "footer.html" %}

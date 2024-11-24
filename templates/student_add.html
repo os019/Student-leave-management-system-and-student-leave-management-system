@@ -1,0 +1,63 @@
+{% include "header.html" %}
+
+
+<div class="container">
+   <form action='/add_student' method='POST'>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">PRN Number of Student:: </label>
+        <input type="prn" class="form-control validationUrl" id="exampleInputEmail1" aria-describedby="emailHelp" name="prn">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Enter Your Full Name</label>
+        <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='name'>
+        <div id="emailHelp" class="form-text">eg. First Middle Surname</div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Roll No</label>
+        <input type="roll_no" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="roll_no">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+        <input type="Phone Number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="phone_no">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Department</label>
+        <select class="form-control selectpicker" name="Department" data-live-search="true">
+          <option>Computer Science and Engineering</option>
+          <option>DataBase Engineering</option>
+          <option>Civil Engineering</option>
+          <option>Mechanical Engineering</option>
+          <option>Electronic and Telecommunication Engineering</option>
+          <option>Chemical Engineering</option>
+       </select>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Year</label>
+        <select class="form-control" name="Year">
+          <option>First Year</option>
+          <option>Second Year</option>
+          <option>Third Year</option>
+          <option>Last Year</option>
+       </select>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Divsion</label>
+        <select class="form-control" name="Division">
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+       </select>
+      </div>
+      <button type="submit" class="btn btn-primary student_add">Add</button>
+    </form>
+</div>
+
+{% include "footer.html" %}

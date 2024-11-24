@@ -1,0 +1,81 @@
+{% include "header.html" %}
+
+
+
+<div class="container-fluid student_info_heading">
+   <div class="row">
+      <h1>Student Records</h1>
+   </div>
+   <div class="row">
+      <div class="col-lg-3">
+         <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+         </form>
+      </div>
+      <div class="col-lg-2">
+         <select class="form-control" id="exampleFormControlSelect1">
+
+         
+            <option value="0" selected>Select The Year</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Thir Year</option>
+            <option value="3">last Year</option>
+         </select>
+      </div>
+      <div class="col-lg-2">
+
+         <select class="form-control" id="exampleFormControlSelect1">
+            <option value="0" selected>Select the Division</option>
+            <option value="1">A</option>
+            <option value="2">B</option>
+            <option value="3">C</option>
+         </select>
+      </div>
+      <div class="col-lg-2 Apply">
+         <button type="button" class="btn btn-dark btn-lg">Apply</button>
+      </div>
+      <div class="col-lg-3">
+         <button type="button" class="btn btn-dark btn-lg"
+            onclick="window.location.href='{{ url_for( 'add_student') }}';">Add Student</button>
+      </div>
+
+   </div>
+</div>
+
+<div class="container-fluid student_record table-wrapper-scroll-y my-custom-scrollbar">
+   <table class="table">
+      <thead>
+         <tr>
+            <th scope="col">Record No</th>
+            <th scope="col">PRN No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Roll No</th>
+            <th scope="col">email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Department Name</th>
+            <th scope="col">Year</th>
+            <th scope="col">Division</th>
+         </tr>
+      </thead>
+      <tbody>
+
+         {% for student in all_students %}
+         <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{student.PRN}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.roll_no}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.phone_no}}</td>
+            <td>{{student.depart_name}}</td>
+            <td>{{student.year}}</td>
+            <td>{{student.division}}</td>
+         </tr>
+         {% endfor %}
+      </tbody>
+   </table>
+</div>
+
+{% include "footer.html" %}
